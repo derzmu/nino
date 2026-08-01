@@ -17,6 +17,8 @@ return [
 	'/website/url',
 
 	'/webpage/home/uri',
+	'/webpage/impressum/uri',
+	'/webpage/datenschutz/uri',
 	'/webpage/404/uri',
 	'/webpage/contact/uri',
 	'/webpage/legal/uri',
