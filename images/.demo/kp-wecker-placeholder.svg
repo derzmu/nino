@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Wecker">
+	<!--
+		Platzhalter für das Release-Artwork. Bewusst als handgezeichnete
+		Strichzeichnung angelegt, damit die Sektion vom ersten Aufruf an
+		stimmig aussieht, bis im _admin die echte Illustration hochgeladen wird
+		(Releases -> wecker -> Feld "art").
+	-->
+	<g fill="none" stroke="#0d0d0d" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+
+		<!-- Glocken -->
+		<path d="M104 78c-14-16-34-14-42-2-8 12-2 28 12 34"/>
+		<path d="M296 78c14-16 34-14 42-2 8 12 2 28-12 34"/>
+
+		<!-- Hammer -->
+		<path d="M176 62h48"/>
+		<path d="M200 62v22"/>
+
+		<!-- Gehäuse -->
+		<path d="M200 86c-62 0-112 48-112 108s50 110 112 110 112-50 112-110S262 86 200 86z"/>
+
+		<!-- Füße -->
+		<path d="M120 292c-10 16-14 26-8 32"/>
+		<path d="M280 292c10 16 14 26 8 32"/>
+
+		<!-- Ziffern -->
+		<text x="200" y="140" font-family="Georgia, serif" font-size="30" fill="#0d0d0d" stroke="none" text-anchor="middle">12</text>
+		<text x="272" y="205" font-family="Georgia, serif" font-size="30" fill="#0d0d0d" stroke="none" text-anchor="middle">3</text>
+		<text x="200" y="272" font-family="Georgia, serif" font-size="30" fill="#0d0d0d" stroke="none" text-anchor="middle">6</text>
+		<text x="130" y="205" font-family="Georgia, serif" font-size="30" fill="#0d0d0d" stroke="none" text-anchor="middle">9</text>
+
+		<!-- Minutenstriche -->
+		<g stroke-width="5">
+			<path d="M236 116l-5 11"/>
+			<path d="M164 116l5 11"/>
+			<path d="M283 158l-11 5"/>
+			<path d="M283 236l-11-5"/>
+			<path d="M236 278l-5-11"/>
+			<path d="M164 278l5-11"/>
+			<path d="M117 236l11-5"/>
+			<path d="M117 158l11 5"/>
+		</g>
+
+		<!-- Zeiger -->
+		<path d="M200 194v-62"/>
+		<path d="M200 194l58 6"/>
+	</g>
+</svg>

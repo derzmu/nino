@@ -1,18 +1,24 @@
 <?php return [
 
-	'[[/company/adress]]' 		=> 'Musterstraße 1, 12345 Musterstadt',
-	'[[/company/phone]]'		=> '+49 (0) 170 1234567',
-	'[[/company/email]]' => 'kontakt@maxmustermann.de',
-	'[[/company/signal]]' => 'maxmustermann.01',
-	'[[/company/instagram]]' => 'maxmustermann.coaching',
+	'[[/company/adress]]' 		=> '', // TODO: ladungsfähige Anschrift fürs Impressum
+	'[[/company/phone]]'		=> '',
+	'[[/company/email]]' => 'booking@keinepanikmusik.de',
+	'[[/company/signal]]' => '',
+	'[[/company/instagram]]' => '',
 
-	'[[/form/email/owner]]' => 'kontakt@maxmustermann.de',
+	// TODO: echte Profil-URLs eintragen - stehen im <a href> eurer alten Seite
+	'[[/social/facebook]]' => 'https://www.facebook.com/',
+	'[[/social/instagram]]' => 'https://www.instagram.com/',
+
+	'[[/band/genre]]' => 'Indie-Pop',
+
+	'[[/form/email/owner]]' => 'booking@keinepanikmusik.de',
 
 
-	'[[/website/url]]' => 'www.maxmustermann.de',
+	'[[/website/url]]' => 'keinepanikmusik.de',
 	'[[/website/charset]]'			=> 'UTF-8',
-	'[[/website/author]]'       => 'Max Mustermann',
-	'[[/website/host]]' => 'Max Mustermann Server, Musterstraße 99, 12345 Musterstadt',
+	'[[/website/author]]'       => 'keine panik.',
+	'[[/website/host]]' => '', // TODO: Hoster fürs Impressum
 
 	// Only used by templates/mail-header.tpl - a self-contained email document
 	// with no shared stylesheet/cascade, so it can't use the CSS custom

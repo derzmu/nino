@@ -9,7 +9,13 @@
     5 => '\\Nino\\Modules\\Template',
     6 => '\\Nino\\Modules\\Csrf',
     7 => '\\Nino\\Modules\\Images',
+    8 => '\\Nino\\Modules\\Form',
+    9 => '\\Nino\\Modules\\Newsletter',
+    10 => '\\KeinePanik\\Modules\\Bandsintown',
   ),
+  '/keinepanik/bandsintown/artist' => 'keine panik.',
+  '/keinepanik/bandsintown/appid' => '497c6d21b4d5cea98fff71063aae4f4c',
+  '/keinepanik/bandsintown/ttl' => 3600,
   '/nino/admin/backups' => false,
   '/nino/admin/logs' => false,
   '/nino/newsletter/confirm-template' => '/templates/mail-newsletter-confirm',
@@ -31,7 +37,7 @@
     '/.cache/style.css' =>
     array (
       0 => '/_nino/Nino.css',
-      1 => '/assets/style.theme01.css',
+      1 => '/assets/style.keinepanik.css',
     ),
     '/.cache/script.js' =>
     array (
@@ -42,12 +48,41 @@
   ),
   '/nino/html/images' =>
   array (
+    '/logo' =>
+    array (
+      'label' => 'Logo (Header, weiß auf schwarz)',
+      'width' => 380,
+      'height' => 160,
+      'filename' => '',
+    ),
+    '/bandfoto' =>
+    array (
+      'label' => 'Bandfoto (Vollbreite)',
+      'width' => 1800,
+      'height' => 1000,
+      'filename' => '',
+    ),
   ),
   '/nino/http/routes' =>
   array (
     'GET://' =>
     array (
       'uri' => '/home',
+      'body' => '[template /templates/page-kp-home]',
+    ),
+    'GET://impressum' =>
+    array (
+      'uri' => '/impressum',
+      'body' => '[template /templates/page-impressum]',
+    ),
+    'GET://datenschutz' =>
+    array (
+      'uri' => '/datenschutz',
+      'body' => '[template /templates/page-datenschutz]',
+    ),
+    'GET://.demo-home' =>
+    array (
+      'uri' => '/.demo-home',
       'body' => '[template /templates/page-home]',
     ),
     'GET://404' =>

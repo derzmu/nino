@@ -1,0 +1,532 @@
+/****************************************************************************************************
+ *
+ *			keine panik. - Projekt-Theme
+ *
+ *			Überschreibt die Design-Tokens aus _nino/Nino.css. Wird NACH Nino.css
+ *			geladen (siehe config.php, /nino/html/assets), die Kaskade löst var()
+ *			erst beim Berechnen auf - kein Build-Step, keine Ladereihenfolge-Tricks.
+ *
+ *			Farbwelt: genau zwei Farben. Warmes Creme und Fast-Schwarz, Sektionen
+ *			wechseln sich ab. Keine Akzentfarbe - der handgezeichnete Wecker und
+ *			das Logo sind der Akzent.
+ *
+ *			SCHRIFTEN - hier ist noch was zu tun:
+ *			Das Original nutzt einen kontrastreichen Didone-Serif (sehr nah an
+ *			Playfair Display) und eine gesperrte Mono (DM Mono). Nino liefert
+ *			beides nicht mit. Als Platzhalter läuft der Titel auf Spectral
+ *			(mitgeliefert, der eleganteste verfügbare Serif) und die Mono auf dem
+ *			System-Stack. Für das echte Ergebnis:
+ *
+ *			  1. playfair-display.woff2 nach /fonts/title/ legen
+ *			  2. dm-mono-regular.woff2  nach /fonts/text/ legen
+ *			  3. unten die beiden @font-face src-Zeilen umbiegen
+ *
+ ****************************************************************************************************/
+
+@font-face {
+	font-family: 'Title';
+	font-style: normal;
+	font-weight: normal;
+	/* TODO: gegen url('/fonts/title/playfair-display.woff2') tauschen */
+	src: local('Playfair Display'), url('/fonts/text/spectral-regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Title';
+	font-style: normal;
+	font-weight: bold;
+	src: local('Playfair Display Bold'), url('/fonts/text/spectral-bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Text';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Lato'), url('/fonts/text/lato-regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Text';
+	font-style: normal;
+	font-weight: bold;
+	src: local('Lato Bold'), url('/fonts/text/lato-bold.woff2') format('woff2');
+}
+
+:root {
+
+	/* --- Farben ------------------------------------------------------------ */
+
+	--kp-cream: #fcf8ee;
+	--kp-black: #0d0d0d;
+
+	--color-primary: var(--kp-black);
+	--color-primary-text: var(--kp-cream);
+	--color-secondary: var(--kp-black);
+
+	--color-text: var(--kp-black);
+	--color-title: var(--kp-black);
+	--color-subtitle: var(--kp-black);
+
+	--color-background: var(--kp-cream);
+	--color-header-bg: var(--kp-black);
+	--color-footer-bg: var(--kp-black);
+	--color-footer-text-main: var(--kp-cream);
+	--color-footer-text-legal: #8a8a8a;
+
+	--color-border: rgba(13, 13, 13, .18);
+	--color-background-dim: rgba(13, 13, 13, .45);
+
+	/* Creme-Sektionen */
+	--color-section-default-bg: var(--kp-cream);
+	--color-section-default-text: var(--kp-black);
+	--color-section-alt-bg: var(--kp-cream);
+	--color-section-alt-text: var(--kp-black);
+
+	/* Schwarze Sektionen (Live, Footer) */
+	--color-section-dark-bg: var(--kp-black);
+	--color-section-dark-text: var(--kp-cream);
+	--color-section-black-bg: var(--kp-black);
+	--color-section-black-text: var(--kp-cream);
+
+	--color-error: #c0392b;
+	--color-success: #3d7a4e;
+
+	/* --- Typografie -------------------------------------------------------- */
+
+	--fontfamily-title: 'Title', Georgia, 'Times New Roman', serif;
+	--fontfamily-subtitle: 'Title', Georgia, serif;
+	--fontfamily-text: 'Text', -apple-system, BlinkMacSystemFont, sans-serif;
+
+	/* TODO: gegen 'DM Mono' tauschen, sobald die Datei da ist */
+	--kp-fontfamily-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+	--base-size: 17px;
+	--line-height: 1.6;
+
+	--text-6: 3.5rem;
+	--text-5: 2.25rem;
+	--text-4: 1.5rem;
+
+	--space-6: 9rem;
+	--space-5: 6rem;
+}
+
+@media screen and (min-width: 768px) {
+	:root {
+		--base-size: 18px;
+		--text-6: 6rem;
+		--text-5: 3rem;
+		--text-4: 1.75rem;
+	}
+}
+
+
+/****************************************************************************************************
+ *			01 Grundlagen
+ ****************************************************************************************************/
+
+body {
+	background: var(--kp-cream);
+}
+
+/* Sektionstitel (Live, Social, Kontakt) - immer zentriert, Serif, normal-weight.
+   Die Eleganz kommt aus der Schrift, nicht aus Fettung. */
+.ui-section-title,
+.kp-title {
+	font-family: var(--fontfamily-title);
+	font-weight: normal;
+	text-align: center;
+	letter-spacing: .01em;
+}
+
+
+/****************************************************************************************************
+ *			02 Header
+ ****************************************************************************************************/
+
+.kp-header {
+	background: var(--kp-black);
+	padding: var(--space-2) var(--space-2);
+	text-align: center;
+}
+
+.kp-header-logo {
+	display: inline-block;
+	max-width: 190px;
+	width: 45vw;
+	height: auto;
+}
+
+
+/****************************************************************************************************
+ *			03 Release-Hero
+ ****************************************************************************************************/
+
+.kp-release {
+	background: var(--kp-cream);
+	padding: var(--space-5) var(--space-2) var(--space-6);
+	text-align: center;
+}
+
+/* Die handgezeichnete Illustration trägt die ganze Sektion - deshalb darf sie
+   groß werden, ist aber nach oben gedeckelt, damit sie auf großen Screens
+   nicht ins Plakathafte kippt. */
+.kp-release-art {
+	display: block;
+	margin: 0 auto var(--space-3);
+	width: min(52vw, 320px);
+	height: auto;
+}
+
+.kp-release-title {
+	font-family: var(--fontfamily-title);
+	font-weight: normal;
+	font-size: var(--text-6);
+	line-height: 1;
+	margin: 0 0 var(--space-2);
+	color: var(--kp-black);
+}
+
+.kp-release-claim {
+	font-family: var(--fontfamily-text);
+	font-weight: bold;
+	font-size: 1rem;
+	margin: 0 0 var(--space-3);
+}
+
+.kp-streams {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.kp-streams a {
+	display: block;
+	line-height: 0;
+	opacity: 1;
+	transition: opacity .18s ease, transform .18s ease;
+}
+
+.kp-streams a:hover,
+.kp-streams a:focus-visible {
+	opacity: .55;
+	transform: translateY(-2px);
+}
+
+.kp-streams svg {
+	width: 46px;
+	height: 46px;
+	fill: var(--kp-black);
+}
+
+
+/****************************************************************************************************
+ *			04 Live
+ ****************************************************************************************************/
+
+.kp-live {
+	background: var(--kp-black);
+	color: var(--kp-cream);
+	padding: var(--space-5) var(--space-2);
+	text-align: center;
+}
+
+.kp-live .kp-title {
+	color: var(--kp-cream);
+	font-size: var(--text-5);
+	margin: 0 0 var(--space-4);
+}
+
+.kp-gigs {
+	list-style: none;
+	margin: 0 auto var(--space-3);
+	padding: 0;
+	max-width: 46rem;
+	text-align: left;
+}
+
+.kp-gig {
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-2);
+	flex-wrap: wrap;
+	padding: var(--space-2) 0;
+	border-bottom: 1px solid rgba(252, 248, 238, .22);
+}
+
+.kp-gig:first-child {
+	border-top: 1px solid rgba(252, 248, 238, .22);
+}
+
+/* Datum in gesperrter Mono - das ist die Stimme, die das Original für alle
+   Kleinteile benutzt (Buttons, Statuszeilen, Termine) */
+.kp-gig-date {
+	font-family: var(--kp-fontfamily-mono);
+	font-size: .8rem;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	min-width: 8.5rem;
+	opacity: .78;
+}
+
+.kp-gig-where {
+	flex: 1 1 12rem;
+	font-family: var(--fontfamily-text);
+}
+
+.kp-gig-city {
+	font-weight: bold;
+}
+
+.kp-gig-venue {
+	opacity: .7;
+}
+
+.kp-gig-action {
+	font-family: var(--kp-fontfamily-mono);
+	font-size: .75rem;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+
+.kp-gig-action a {
+	color: var(--kp-cream);
+	border-bottom: 1px solid rgba(252, 248, 238, .5);
+	text-decoration: none;
+}
+
+.kp-gig-action a:hover {
+	border-bottom-color: var(--kp-cream);
+}
+
+.kp-gig--soldout .kp-gig-action {
+	opacity: .5;
+}
+
+/* Leerer Zustand - im Original stand hier nur "KEINE DEMNÄCHST STATTFINDENDEN
+   SHOWS". Jetzt trägt die Stelle zwei Handlungsaufforderungen, weil sie sonst
+   die toteste Fläche der Seite ist. */
+.kp-noshows-text {
+	font-family: var(--kp-fontfamily-mono);
+	font-size: .8rem;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	opacity: .72;
+	margin: 0 0 var(--space-3);
+}
+
+.kp-live .ui-btn {
+	font-family: var(--kp-fontfamily-mono);
+	font-size: .8rem;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+	background: transparent;
+	color: var(--kp-cream);
+	border: 1px solid var(--kp-cream);
+	border-radius: 0;
+	padding: .7em 1.4em;
+}
+
+.kp-live .ui-btn:hover,
+.kp-live .ui-btn:focus-visible {
+	background: var(--kp-cream);
+	color: var(--kp-black);
+}
+
+
+/****************************************************************************************************
+ *			05 Newsletter (im leeren Live-Zustand)
+ ****************************************************************************************************/
+
+.kp-notify {
+	max-width: 28rem;
+	margin: var(--space-4) auto 0;
+	padding-top: var(--space-3);
+	border-top: 1px solid rgba(252, 248, 238, .22);
+}
+
+.kp-notify-label {
+	font-family: var(--kp-fontfamily-mono);
+	font-size: .72rem;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+	opacity: .65;
+	display: block;
+	margin-bottom: var(--space-2);
+}
+
+.kp-notify-row {
+	display: flex;
+	gap: .5rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.kp-notify input[type="email"] {
+	flex: 1 1 14rem;
+	background: transparent;
+	border: 1px solid rgba(252, 248, 238, .4);
+	border-radius: 0;
+	color: var(--kp-cream);
+	padding: .7em .9em;
+	font-family: var(--fontfamily-text);
+}
+
+.kp-notify input[type="email"]::placeholder {
+	color: rgba(252, 248, 238, .4);
+}
+
+.kp-notify input[type="email"]:focus {
+	outline: none;
+	border-color: var(--kp-cream);
+}
+
+/* Honeypot - muss für Menschen unsichtbar und für Bots ausfüllbar bleiben,
+   deshalb kein display:none (das überspringen viele Bots gezielt) */
+.kp-hp {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.kp-notify-msg {
+	font-family: var(--kp-fontfamily-mono);
+	font-size: .72rem;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	margin-top: var(--space-2);
+	min-height: 1.2em;
+}
+
+
+/****************************************************************************************************
+ *			06 Bandfoto
+ ****************************************************************************************************/
+
+.kp-photo {
+	display: block;
+	line-height: 0;
+	background: var(--kp-black);
+}
+
+.kp-photo img {
+	width: 100%;
+	height: clamp(260px, 46vh, 560px);
+	object-fit: cover;
+	object-position: center 42%;
+	display: block;
+}
+
+
+/****************************************************************************************************
+ *			07 Social / Kontakt
+ ****************************************************************************************************/
+
+.kp-social,
+.kp-contact {
+	background: var(--kp-cream);
+	text-align: center;
+	padding: var(--space-5) var(--space-2) var(--space-3);
+}
+
+.kp-contact {
+	padding-top: var(--space-3);
+	padding-bottom: var(--space-5);
+}
+
+.kp-social .kp-title,
+.kp-contact .kp-title {
+	font-size: var(--text-5);
+	margin: 0 0 var(--space-3);
+}
+
+.kp-socials {
+	display: flex;
+	justify-content: center;
+	gap: var(--space-3);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.kp-socials svg {
+	width: 26px;
+	height: 26px;
+	fill: var(--kp-black);
+}
+
+.kp-socials a {
+	display: block;
+	line-height: 0;
+	transition: opacity .18s ease;
+}
+
+.kp-socials a:hover {
+	opacity: .55;
+}
+
+.kp-contact-mail {
+	font-family: var(--fontfamily-text);
+	color: var(--kp-black);
+	text-decoration: none;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.kp-contact-mail:hover {
+	border-bottom-color: var(--kp-black);
+}
+
+
+/****************************************************************************************************
+ *			08 Footer
+ ****************************************************************************************************/
+
+.kp-footer {
+	background: var(--kp-black);
+	color: var(--kp-cream);
+	text-align: center;
+	padding: var(--space-4) var(--space-2);
+}
+
+.kp-footer a {
+	display: block;
+	color: var(--kp-cream);
+	opacity: .7;
+	text-decoration: none;
+	font-size: .85rem;
+	padding: .35rem 0;
+}
+
+.kp-footer a:hover {
+	opacity: 1;
+}
+
+
+/****************************************************************************************************
+ *			09 Barrierefreiheit
+ ****************************************************************************************************/
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.kp-streams a,
+	.kp-socials a {
+		transition: none;
+	}
+	.kp-streams a:hover {
+		transform: none;
+	}
+}

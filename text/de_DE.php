@@ -41,9 +41,37 @@
 	'[[/webpage/.demo-vpa/title]]' => 'Viewport-Animationen',
 	'[[/webpage/.demo-vpa/description]]' => 'Internes Entwicklungs-Tool - alle js-vpa-Effekte einzeln zum Scrollen und Referenzieren.',
 
-	'[[/company/name]]' => 'Max Mustermann',
+	'[[/company/name]]' => 'keine panik.',
 	'[[/company/country]]' => 'Deutschland',
-	'[[/company/description]]' => 'Business-Coaching für mehr Klarheit, Motivation und Erfolg - nebenberuflich mit Herz.',
+	'[[/company/description]]' => 'Deutschsprachiger Indie-Pop mit Herz.',
+
+	// --- keine panik. -------------------------------------------------------
+	'[[/webpage/home/uri]]' => '/',
+	'[[/webpage/home/name]]' => 'Start',
+	'[[/webpage/home/title]]' => 'keine panik. | Wecker OUT NOW',
+	'[[/webpage/home/description]]' => 'Deutschsprachiger Indie-Pop mit Herz. Neue Single "Wecker" jetzt überall streamen.',
+
+	'[[/webpage/impressum/uri]]' => '/impressum',
+	'[[/webpage/impressum/name]]' => 'Impressum',
+	'[[/webpage/impressum/title]]' => 'Impressum | keine panik.',
+	'[[/webpage/impressum/description]]' => 'Anbieterkennzeichnung nach § 5 DDG.',
+
+	'[[/webpage/datenschutz/uri]]' => '/datenschutz',
+	'[[/webpage/datenschutz/name]]' => 'Datenschutz',
+	'[[/webpage/datenschutz/title]]' => 'Datenschutz | keine panik.',
+	'[[/webpage/datenschutz/description]]' => 'Informationen zur Verarbeitung personenbezogener Daten.',
+
+	// /page-kp-home - Live-Sektion
+	'[[/page-home/live/title]]' => 'Live',
+	'[[/page-home/live/tickets]]' => 'Tickets',
+	'[[/page-home/live/empty]]' => 'Gerade keine Shows geplant',
+	'[[/page-home/live/booking]]' => 'Konzert anfragen',
+	'[[/page-home/live/notify]]' => 'Oder wir sagen dir Bescheid, sobald es weitergeht',
+	'[[/page-home/live/mailplaceholder]]' => 'deine@mail.de',
+	'[[/page-home/live/notifybtn]]' => 'Eintragen',
+
+	'[[/page-home/social/title]]' => 'Social',
+	'[[/page-home/contact/title]]' => 'Kontakt',
 
 	// Cookie-Banner
 	'[[/cookiebanner/info/text]]' => 'Diese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten.',
@@ -92,11 +120,13 @@
 	// Newsletter - Formular
 	'[[/newsletter/label/email]]' => 'E-Mail-Adresse',
 	'[[/newsletter/label/submit]]' => 'Anmelden',
-	'[[/newsletter/info/required]]' => 'Bitte geben Sie eine E-Mail-Adresse ein.',
-	'[[/newsletter/info/email]]' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
-	'[[/newsletter/info/success]]' => 'Vielen Dank – bitte bestätigen Sie Ihre Anmeldung über den Link in Ihrem Postfach.',
-	'[[/newsletter/info/existing]]' => 'Diese E-Mail-Adresse ist bereits angemeldet.',
-	'[[/newsletter/info/error]]' => 'Die Anmeldung konnte nicht versendet werden. Bitte probieren Sie es später noch einmal.',
+	// Anrede bewusst "du" - Bandseite, nicht Kanzlei
+	'[[/newsletter/info/required]]' => 'Bitte gib eine E-Mail-Adresse ein.',
+	'[[/newsletter/info/email]]' => 'Das sieht nicht nach einer gültigen Adresse aus.',
+	'[[/newsletter/info/sending]]' => 'Moment …',
+	'[[/newsletter/info/success]]' => 'Fast geschafft – bestätige noch den Link in deinem Postfach.',
+	'[[/newsletter/info/existing]]' => 'Diese Adresse ist schon eingetragen.',
+	'[[/newsletter/info/error]]' => 'Hat nicht geklappt. Probier es später noch mal.',
 
 	// Newsletter - Bestätigungsmail (Double-Opt-in)
 	'[[/mail/newsletter/subject]]' => 'Bitte bestätigen Sie Ihre Newsletter-Anmeldung | [[/website/url]]',
